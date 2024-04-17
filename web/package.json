@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "PORT=3001 next dev",
+    "dev": "cross-env PORT=3001 next dev",
     "build": "next build",
     "start": "PORT=3001 next start",
     "lint": "next lint"
@@ -11,6 +11,7 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "cross-env": "^7.0.3",
     "next": "14.1.4",
     "npm": "^10.5.1",
     "react": "^18",
