@@ -10,10 +10,11 @@ export class UserService {
   constructor(
     @InjectRepository(UsersEntity)
     private usersRepo: Repository<UsersEntity>,
-  ) {}
+  ) { }
 
-  // get list of all users
-  async findAll(): Promise<UsersEntity[]> {
-    return await this.usersRepo.find();
+  // get list of all users by pages
+  async findUsers(page: number = 0, limit: number = 20): Promise<UsersEntity[]> {
+    return await this.usersRepo.find({ skip: page * limit, take: limit });
   }
+
 }
