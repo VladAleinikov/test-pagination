@@ -10,8 +10,8 @@ export class UserController {
   @Get()
   async getUsers(@Query('page') page: number) {
     this.logger.log('Get all users on page ' + page);
-    const users = await this.userService.findUsers(page);
-    return users.map((user) => UsersResponseDto.fromUsersEntity(user));
+    const {users, lastPage} = await this.userService.findUsers(page);
+    return {users: users.map((user) => UsersResponseDto.fromUsersEntity(user)), lastPage};
   }
 
 }
